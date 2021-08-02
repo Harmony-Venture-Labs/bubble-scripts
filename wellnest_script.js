@@ -25,8 +25,14 @@ function filterByAvailability(listings, selected_date) {
     })
 }
 
-function filterByCancellationPolicy(listings) {
-
+function filterByCancellationPolicy(listings, cancellation_policy) {
+    return listings.filter(elem => {
+        if (!elem.get("cancellation_policy_text")) return false;
+        if (elem.get("cancellation_policy_text").toLowerCase().indexOf(`${cancellation_policy.toLowerCase()}`) !== -1) {
+            return true;
+        }
+        return false;
+    })
 }
 
 function filterByPrice(listings) {
