@@ -36,7 +36,7 @@ function filterByCancellationPolicy(listings, cancellation_policy) {
 }
 
 function filterByPrice(listings, price_range) {
-    listings.filter(elem => {
+    return listings.filter(elem => {
         if (!elem.get("availability_list_custom_availability")) return false;
         let availabilities = elem.get("availability_list_custom_availability").get(0, elem.get("availability_list_custom_availability").length());
         for (let el of availabilities) {
