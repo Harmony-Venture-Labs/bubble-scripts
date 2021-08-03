@@ -35,6 +35,12 @@ function filterByCancellationPolicy(listings, cancellation_policy) {
     })
 }
 
-function filterByPrice(listings) {
-
+function filterByPrice(listings, price_range) {
+    listings.filter(elem => {
+        if (!elem.get("availability_list_custom_availability")) return false;
+        let availabilities = elem.get("availability_list_custom_availability").get(0, elem.get("availability_list_custom_availability").length());
+        for (let el of availabilities) {
+            return (el.get("hourly_rate_number") >= price_range[0] && el.get("hourly_rate_number") <= price_range[1])
+        }
+    })
 }
