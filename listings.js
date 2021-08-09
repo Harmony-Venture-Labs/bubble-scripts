@@ -11,7 +11,7 @@ var days = [
 function filterByAvailability(listings, selected_date) {
     return listings.filter(elem => {
         if (!elem.get("availability_list_custom_availability")) return false;
-        console.log(elem.get("Created By").get("onboarded_boolean"))
+        // console.log(elem.get("Created By").get("onboarded_boolean"))
         let availabilities = elem.get("availability_list_custom_availability").get(0, elem.get("availability_list_custom_availability").length());
         for (let el of availabilities) {
             if (!el.get("weekdays_custom_weekday_range")) return false;
