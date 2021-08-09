@@ -19,7 +19,7 @@ function filterByAvailability(listings, selected_date) {
 //             console.log(days[selected_date.getDay()])
             let weekdays = el.get("weekdays_custom_weekday_range").get("days_list_text").get(0, el.get("weekdays_custom_weekday_range").get("days_list_text").length());
             if (weekdays.includes(days[selected_date.getDay()])) {
-                return true;
+                return elem.get("Created By").get("onboarded_boolean"); // returns the onboarded status of the creator. If the creator is onboarded, the availability is visible
             }
         }
         return false;
